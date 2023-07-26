@@ -24,6 +24,36 @@
             $('.navbar').removeClass('sticky-top shadow-sm');
         }
     });
+
+    function envoyerEmail() {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var subject = document.getElementById('subject').value;
+        var message = document.getElementById('message').value;
+    
+        // Valider les champs obligatoires côté client (facultatif)
+        if (name === '' || email === '' || subject === '' || message === '') {
+            alert('Please fill in all required fields.');
+            return;
+        }
+    
+        // Envoi des données au script PHP via une requête AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'envoyer_email.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Afficher un message de confirmation
+                alert(xhr.responseText);
+                // Réinitialiser le formulaire après l'envoi réussi (facultatif)
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('subject').value = '';
+                document.getElementById('message').value = '';
+            }
+        };
+        xhr.send('name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&subject=' + encodeURIComponent(subject) + '&message=' + encodeURIComponent(message));
+    }
     
     
     // Dropdown on mouse hover
