@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/Capture_d_écran_2023-09-10_181248-removebg-preview.png" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,40 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" >
+
+    <style>
+        /* Styles pour le modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 5px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+    </style>
 </head>
 
 <body>
@@ -68,8 +101,7 @@
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="" class="navbar-brand p-0">
-                <h1 class="text-primary m-0"><i class="fa fa-ma-marker-alt me-3"></i>Covit.</h1>
-                <!-- <img src="img/logo.png" alt="Logo"> -->
+                <img src="img/Design_sans_titre__4_-removebg-preview.png" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -292,8 +324,16 @@
                             </div>
                             <p>La COVIT Orge est un mélange torréfié et moulu de céréales et de légumineuses parfumé aux épices riches et variées. Au petit-déjeuner, au goûter, en repas rapide, à l’effort physique ou en complément alimentaire</p>
                             <div class="d-flex justify-content-center mb-2">
-                                <a href="" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <button class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;" onclick="showDescription()">Read More</button>
                                 <a href="" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;"></a>
+                            </div>
+                        </div>
+                        
+                        <div id="productDescriptionModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="closeDescriptionModal()">&times;</span>
+                                <h3>Boite 20 Dosettes COVIT Orge</h3>
+                                <p>La COVIT Orge est un mélange torréfié et moulu de céréales et de légumineuses parfumé aux épices riches et variées. Au petit-déjeuner, au goûter, en repas rapide, à l’effort physique ou en complément alimentaire</p>
                             </div>
                         </div>
                     </div>
@@ -309,7 +349,7 @@
                             <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>100% Artisanale</small>
                         </div>
                         <div class="text-center p-4">
-                            <h3 class="mb-0">Boite 20 Dosettes COVIT Blé </h3>
+                            <h3 class="mb-0">Boite 20 Dosettes COVIT Blé</h3>
                             <div class="mb-3">
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
@@ -319,10 +359,19 @@
                             </div>
                             <p>La Bsissa Blé est un mélange torréfié et moulu de céréales et de légumineuses parfumé aux épices riches et variées. Au petit-déjeuner, au goûter, en repas rapide, à l’effort physique ou en complément alimentaire</p>
                             <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <button class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;" onclick="showDescription()">Read More</button>
                                 <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;"></a>
                             </div>
                         </div>
+                        
+                        <div id="productDescriptionModalBlé" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="closeDescriptionModal()">&times;</span>
+                                <h3>Boite 20 Dosettes COVIT Blé</h3>
+                                <p>La Bsissa Blé est un mélange torréfié et moulu de céréales et de légumineuses parfumé aux épices riches et variées. Au petit-déjeuner, au goûter, en repas rapide, à l’effort physique ou en complément alimentaire</p>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-5 wow fadeInUp" data-wow-delay="0.3s">
@@ -344,12 +393,21 @@
                                 <small class="fa fa-star text-primary"></small>
                                 <small class="fa fa-star text-primary"></small>
                             </div>
-                            <p>La COVIT Blé est un mélange torréfié et moulu de céréales et de légumineuses parfumé aux épices riches et variées. donnez la Bsissa à votre enfant pour lui fournir l’énergie et les nutriments nécessaires à sa croissance.</p>
+                            <p>La COVIT KidZ est un mélange torréfié et moulu de céréales et de légumineuses parfumé aux épices riches et variées. Donnez la Bsissa à votre enfant pour lui fournir l’énergie et les nutriments nécessaires à sa croissance.</p>
                             <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <button class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;" onclick="showDescription()">Read More</button>
                                 <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;"></a>
                             </div>
                         </div>
+                        
+                        <div id="productDescriptionModalKidZ" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="closeDescriptionModal()">&times;</span>
+                                <h3>Boite 20 Dosettes COVIT KidZ</h3>
+                                <p>La COVIT KidZ est un mélange torréfié et moulu de céréales et de légumineuses parfumé aux épices riches et variées. Donnez la Bsissa à votre enfant pour lui fournir l’énergie et les nutriments nécessaires à sa croissance.</p>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-5 wow fadeInUp" data-wow-delay="0.5s">
@@ -363,20 +421,29 @@
                             <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>100% Artisanale</small>
                         </div>
                         <div class="text-center p-4">
-                            <h3 class="mb-0">Boite 20 Dosettes COVIT fruit Sec</h3>
-                            <div class="mb-3">
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                                <small class="fa fa-star text-primary"></small>
-                            </div>
-                            <p>La COVIT. fruits secs est un mélange torréfié et moulu de légumineuses parfumé aux épices riches et variées. Au petit-déjeuner, au goûter, en repas rapide, à l’effort physique ou en complément alimentaire.</p>
-                            <div class="d-flex justify-content-center mb-2">
-                                <a href="#" class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
-                                <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;"></a>
-                            </div>
-                        </div>
+    <h3 class="mb-0">Boite 20 Dosettes COVIT fruit Sec</h3>
+    <div class="mb-3">
+        <small class="fa fa-star text-primary"></small>
+        <small class="fa fa-star text-primary"></small>
+        <small class="fa fa-star text-primary"></small>
+        <small class="fa fa-star text-primary"></small>
+        <small class="fa fa-star text-primary"></small>
+    </div>
+    <p>La COVIT. fruits secs est un mélange torréfié et moulu de légumineuses parfumé aux épices riches et variées. Au petit-déjeuner, au goûter, en repas rapide, à l’effort physique ou en complément alimentaire.</p>
+    <div class="d-flex justify-content-center mb-2">
+        <button class="btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;" onclick="showDescription()">Read More</button>
+        <a href="#" class="btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;"></a>
+    </div>
+</div>
+
+<div id="productDescriptionModalFruitSec" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeDescriptionModal()">&times;</span>
+        <h3>Boite 20 Dosettes COVIT fruit Sec</h3>
+        <p>La COVIT. fruits secs est un mélange torréfié et moulu de légumineuses parfumé aux épices riches et variées. Au petit-déjeuner, au goûter, en repas rapide, à l’effort physique ou en complément alimentaire.</p>
+    </div>
+</div>
+
                     </div>
                 </div>
             </div>
@@ -678,6 +745,18 @@
             };
             xhr.send('name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&subject=' + encodeURIComponent(subject) + '&message=' + encodeURIComponent(message));
         }
+        </script>
+        <script>
+            function showDescription() {
+    var modal = document.getElementById("productDescriptionModal");
+    modal.style.display = "block";
+}
+
+function closeDescriptionModal() {
+    var modal = document.getElementById("productDescriptionModal");
+    modal.style.display = "none";
+}
+
         </script>
         
         
